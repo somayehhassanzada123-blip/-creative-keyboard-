@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #0c1020;
+  --panel: #151b30;
+  --panel-light: #1c2440;
+  --text: #f4f6ff;
+  --muted: #929bb7;
+  --accent: #8b7cff;
+  --accent2: #5ce1c2;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; padding: 34px 18px;
+  background: radial-gradient(circle at 15% 0%, #25204a 0, transparent 34%), var(--bg);
+  color: var(--text); font-family: 'DM Sans', sans-serif;
+}
+.app { max-width: 1000px; margin: 0 auto; }
+.top, .brand, .section-heading, .keyboard-toolbar, .editor-footer {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.top { margin-bottom: 34px; }
+.brand { justify-content: flex-start; gap: 13px; }
+.brand-icon {
+  width: 48px; height: 48px; display: grid; place-items: center;
+  border-radius: 15px; background: linear-gradient(135deg, var(--accent), #5b9cff);
+  font-size: 25px; box-shadow: 0 8px 28px #7163e64a;
+}
+h1, h2, p { margin: 0; }
+h1 { font-size: 20px; letter-spacing: -.5px; }
+.brand p { color: var(--muted); font-size: 12px; margin-top: 2px; }
+.status { color: #b7c2d9; font-size: 12px; background: #1a2238; border: 1px solid #2a3452; padding: 9px 13px; border-radius: 30px; }
+.status i { display: inline-block; width: 7px; height: 7px; background: var(--accent2); border-radius: 50%; margin-right: 7px; }
+.workspace, .keyboard-panel { background: #12182bdb; border: 1px solid #28314d; border-radius: 22px; padding: 25px; box-shadow: 0 18px 50px #00000020; }
+.workspace { margin-bottom: 22px; }
+.eyebrow { color: var(--accent2); font-size: 10px; font-weight: 800; letter-spacing: 1.8px; margin-bottom: 7px; }
+h2 { font-size: 19px; letter-spacing: -.4px; }
+.clear-btn { border: 1px solid #35405f; background: #1c2540; color: #dce2f7; border-radius: 10px; padding: 10px 13px; cursor: pointer; font: inherit; font-size: 12px; transition: .2s; }
+.clear-btn:hover { background: #2b3658; border-color: var(--accent); }
+.clear-btn span { color: var(--accent2); margin-left: 5px; }
+textarea {
+  display: block; width: 100%; min-height: 145px; resize: vertical; margin-top: 20px;
+  border: 1px solid #303a59; border-radius: 14px; padding: 18px;
+  outline: none; background: #0d1324; color: var(--text); font: 15px/1.7 'DM Sans', sans-serif;
+  transition: border .2s, box-shadow .2s;
+}
+textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px #8b7cff20; }
+textarea::placeholder { color: #68728e; }
+.editor-footer { margin-top: 12px; color: var(--muted); font-size: 11px; }
+.keyboard-toolbar { margin-bottom: 23px; }
+.layout-tag { color: #c1c8df; border: 1px solid #35405f; border-radius: 8px; padding: 7px 10px; font-size: 10px; letter-spacing: 1px; }
+.keyboard { display: flex; flex-direction: column; gap: 9px; }
+.key-row { display: flex; justify-content: center; gap: 8px; }
+.key {
+  flex: 1; min-width: 0; height: 52px; border-radius: 10px; border: 1px solid #36415f;
+  background: linear-gradient(180deg, #27314e, #1c2540); color: #f2f4ff;
+  font: 600 14px 'DM Sans', sans-serif; cursor: pointer; box-shadow: 0 4px 0 #10172a;
+  transition: transform .08s, background .15s, border-color .15s;
+}
+.key:hover { background: #39466b; border-color: #8275f6; }
+.key:active, .key.pressed { transform: translateY(3px); box-shadow: 0 1px 0 #10172a; background: #6559bd; }
+.key.utility { color: #b9b2ff; background: linear-gradient(180deg, #302c55, #242143); }
+.key.wide { flex: 1.55; font-size: 12px; }
+.bottom-row .key { max-width: 110px; }
+.bottom-row .key[data-action="space"] { max-width: 360px; flex: 4; }
+.hint { text-align: center; color: var(--muted); font-size: 11px; margin-top: 20px; }
+footer { text-align: center; color: #69738e; font-size: 11px; padding: 24px 0 5px; }
+footer span { color: var(--accent2); margin-left: 4px; }
+@media (max-width: 650px) {
+  body { padding: 20px 10px; }
+  .top { margin-bottom: 22px; }
+  .workspace, .keyboard-panel { padding: 16px 12px; border-radius: 17px; }
+  .key-row { gap: 4px; }
+  .key { height: 43px; border-radius: 7px; font-size: 11px; }
+  .key.wide { font-size: 9px; }
+  .bottom-row .key { max-width: 70px; }
+  .bottom-row .key[data-action="space"] { max-width: 170px; }
+  h2 { font-size: 16px; }
+  .status { font-size: 10px; padding: 7px 9px; }
+  .editor-footer { gap: 8px; font-size: 9px; }
+}
+@media (max-width: 390px) {
+  .key { height: 37px; font-size: 10px; }
+  .key-row { gap: 3px; }
+  .layout-tag { font-size: 8px; }
+}
